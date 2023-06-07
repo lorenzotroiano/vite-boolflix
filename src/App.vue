@@ -21,13 +21,13 @@ export default {
   methods: {
     getFilms() {
 
-      let films = store.urlAPI;
+      let movieList = store.urlAPI;
 
       if (store.searchText !== "") {
-        films += `${store.searchText}`
-        console.log(films);
+        movieList += `${store.searchText}`
+        console.log(movieList);
       }
-      axios.get(store.urlAPI)
+      axios.get(movieList)
         .then(res => {
           store.listFilms = res.data.results;
 

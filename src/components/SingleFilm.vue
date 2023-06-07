@@ -6,7 +6,7 @@ export default {
     name: "SingleFilm",
 
     props: {
-        details: Array
+        details: Object
     }
 }
 
@@ -15,14 +15,15 @@ export default {
 <template>
     <div class="container-films">
         <div>
-            <img :src="details.poster_path" alt="">
+            <img src="" alt="">
         </div>
 
         <div class="stats">
-            <h3>{{ details.original_title }}</h3>
+            <p>{{ details.original_title }}</p>
+            <h3>{{ details.title }}</h3>
             <h4>{{ details.vote_average }}</h4>
             <h5>{{ details.original_language }}</h5>
-            <p>{{ details.overview }}</p>
+
         </div>
 
     </div>
