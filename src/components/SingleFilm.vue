@@ -3,7 +3,11 @@
 
 
 export default {
-    name: "SingleFilm"
+    name: "SingleFilm",
+
+    props: {
+        details: Array
+    }
 }
 
 </script>
@@ -11,19 +15,14 @@ export default {
 <template>
     <div class="container-films">
         <div>
-            <img src="https://www.cinefacts.it/foto/h!fight-club-poster-locandina-cinefacts.jpg" alt="">
+            <img :src="details.poster_path" alt="">
         </div>
 
         <div class="stats">
-            <h3>Fight Club</h3>
-            <h4>Voto: 4/5</h4>
-            <h5>En</h5>
-            <p>Descrizione: Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus obcaecati
-                assumenda,
-                enim
-                provident possimus non fugiat praesentium qui adipisci! Numquam dolor excepturi itaque voluptatem
-                placeat
-                impedit nostrum, facere eaque laboriosam.</p>
+            <h3>{{ details.original_title }}</h3>
+            <h4>{{ details.vote_average }}</h4>
+            <h5>{{ details.original_language }}</h5>
+            <p>{{ details.overview }}</p>
         </div>
 
     </div>

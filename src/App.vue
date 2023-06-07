@@ -1,4 +1,5 @@
 <script>
+import { store } from './store.js';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppSearch from './components/AppSearch.vue';
@@ -10,6 +11,34 @@ export default {
     AppHeader,
     AppSearch,
     AppListFilms
+  },
+
+  data() {
+    return {
+      store
+    }
+  },
+  methods: {
+    getFilms() {
+
+      let films = store.urlAPI;
+
+      if (store.searchText !== "") {
+        films += `${store.searchText}`
+        console.log(films);
+      }
+      axios.get(store.urlAPI)
+        .then(res => {
+          store.listFilms = res.data.results;
+
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  },
+  created() {
+    this.getFilms();
   }
 }
 
@@ -19,7 +48,7 @@ export default {
   <AppHeader />
 
   <main>
-    <AppSearch />
+    <AppSearch @search="getFilms" />
 
     <AppListFilms />
   </main>

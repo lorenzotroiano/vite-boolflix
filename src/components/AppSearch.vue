@@ -1,9 +1,15 @@
 <script>
 
-
+import { store } from '../store.js';
 
 export default {
-    name: "AppSearch"
+    name: "AppSearch",
+
+    data() {
+        return {
+            store
+        }
+    }
 }
 
 </script>
@@ -11,8 +17,8 @@ export default {
 <template>
     <section>
         <span>Cerca:</span>
-        <input type="text" placeholder="Cerca film/serie Tv">
-        <button>Cerca</button>
+        <input type="text" placeholder="Cerca film/serie Tv" v-model.trim="store.searchText">
+        <button @click="$emit('search')">Cerca</button>
     </section>
 </template>
 
