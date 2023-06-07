@@ -21,8 +21,8 @@ export default {
         <div class="stats">
             <p>{{ details.original_title }}</p>
             <h3>{{ details.title }}</h3>
-            <h4>{{ details.vote_average }}</h4>
-            <h5>{{ details.original_language }}</h5>
+            <h4>{{ details.vote_average }} </h4>
+            <h5 :class="details.original_language === 'en' ? 'america' : ''">{{ details.original_language }} </h5>
 
         </div>
 
@@ -46,5 +46,15 @@ export default {
     img {
         width: 220px;
     }
+
+    .america {
+        text-align: center;
+        background-image: url(../../public/icons8-usa-48.png);
+        background-repeat: no-repeat;
+        background-size: 30px;
+        background-position-y: center;
+        background-position-x: center;
+    }
+
 }
 </style>
