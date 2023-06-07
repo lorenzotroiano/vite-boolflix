@@ -12,6 +12,7 @@ export default {
     <section>
         <span>Cerca:</span>
         <input type="text" placeholder="Cerca film/serie Tv">
+        <button>Cerca</button>
     </section>
 </template>
 
@@ -20,5 +21,15 @@ section {
     padding: 20px;
     background: orange;
     text-align: center;
+
+    button {
+        background-color: red;
+        width: 80px;
+        border: solid 1px black;
+        border-radius: 7px;
+        padding: 5px;
+
+        margin-left: 10px;
+    }
 }
 </style>
