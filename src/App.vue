@@ -48,7 +48,7 @@ export default {
   <AppHeader />
 
   <main>
-    <AppSearch @search="getFilms" />
+    <AppSearch @enter="getFilms" @search="getFilms" />
 
     <AppListFilms />
   </main>

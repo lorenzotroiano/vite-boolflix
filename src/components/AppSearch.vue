@@ -17,7 +17,7 @@ export default {
 <template>
     <section>
         <span>Cerca:</span>
-        <input type="text" placeholder="Cerca film/serie Tv" v-model.trim="store.searchText">
+        <input @keyup.enter="$emit('enter')" type=" text" placeholder="Cerca film/serie Tv" v-model.trim="store.searchText">
         <button @click="$emit('search')">Cerca</button>
     </section>
 </template>
