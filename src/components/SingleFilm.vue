@@ -14,15 +14,14 @@ export default {
 
 <template>
     <div class="container-films">
-        <div>
-            <img src="" alt="">
-        </div>
+
 
         <div class="stats">
             <p>Film</p>
+            <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
             <p>{{ details.original_title }}</p>
             <h3>{{ details.title }}</h3>
-            <h4>{{ details.vote_average }} </h4>
+            <h4>{{ details.vote_average / 2 }} </h4>
             <div class="row">
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
             </div>
@@ -48,6 +47,10 @@ export default {
     h5 {
         text-align: center;
         margin: 10px 0;
+    }
+
+    .poster {
+        width: 200px;
     }
 
     img {

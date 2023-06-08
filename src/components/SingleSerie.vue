@@ -20,6 +20,7 @@ export default {
 
         <div class="stats">
             <p>Serie Tv</p>
+            <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
             <p>{{ details.original_name }}</p>
             <h3>{{ details.name }}</h3>
             <h4>{{ details.vote_average }} </h4>
@@ -48,6 +49,10 @@ export default {
     h5 {
         text-align: center;
         margin: 10px 0;
+    }
+
+    .poster {
+        width: 200px;
     }
 
     img {
