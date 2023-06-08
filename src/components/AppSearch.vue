@@ -24,9 +24,9 @@ export default {
 
 <style lang="scss" scoped>
 section {
-    padding: 20px;
-    background: orange;
-    text-align: center;
+    // padding: 20px;
+    // background: orange;
+    // text-align: center;
 
     button {
         background-color: red;

@@ -66,15 +66,28 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
+  <header>
+    <AppHeader />
+    <AppSearch @enter="getFilms" @search="getFilms" />
+  </header>
 
   <main>
-    <AppSearch @enter="getFilms" @search="getFilms" />
+
 
     <AppListFilms />
   </main>
 </template>
 
 <style lang="scss">
-@use './styles/general.scss'
+@use './styles/general.scss';
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 10px;
+  background-color: violet;
+}
 </style>
