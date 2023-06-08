@@ -9,6 +9,8 @@ export default {
         details: Object
     },
 
+
+
     methods: {
         convertToIntegerNum(n) {
 
@@ -38,40 +40,11 @@ export default {
             <p>{{ details.original_title }}</p>
             <h3>{{ details.title }}</h3>
 
-            <div v-if="convertToIntegerNum(details.vote_average) === 1">
-                <i class="fa-regular fa-star"> </i>
-            </div>
-
-            <div v-if="convertToIntegerNum(details.vote_average) === 2">
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-            </div>
-
-            <div v-if="convertToIntegerNum(details.vote_average) === 3">
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-            </div>
 
 
-            <div v-if="convertToIntegerNum(details.vote_average) === 4">
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-            </div>
-
-
-
-            <div v-if="convertToIntegerNum(details.vote_average) === 5">
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-                <i class="fa-regular fa-star"> </i>
-            </div>
-
-
+            <i v-for="(star, index) in 5" class="fa-regular fa-star"
+                :class="convertToIntegerNum(details.vote_average) >= index ? 'active' : ''">
+            </i>
 
 
 
@@ -117,6 +90,13 @@ export default {
         justify-content: center;
     }
 
+    .fa-star {
+        padding: 5px;
+    }
+
+    .active {
+        color: yellow;
+    }
 
 
 }

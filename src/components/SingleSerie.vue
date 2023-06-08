@@ -7,6 +7,19 @@ export default {
 
     props: {
         details: Object
+    },
+    methods: {
+        convertToIntegerNum(n) {
+
+
+            let stars = n / 10;
+            const star = Math.round(stars * 5);
+            return star;
+
+
+
+
+        }
     }
 }
 
@@ -21,8 +34,11 @@ export default {
             <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
             <p>{{ details.original_name }}</p>
             <h3>{{ details.name }}</h3>
-            <h4>{{ details.vote_average }} </h4>
-            <i class="fa-regular fa-star"></i>
+
+            <i v-for="(star, index) in 5" class="fa-regular fa-star"
+                :class="convertToIntegerNum(details.vote_average) >= index ? 'active' : ''">
+            </i>
+
             <div class="row">
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
             </div>
@@ -67,7 +83,11 @@ export default {
 
 
     .fa-star {
-        width: 40px;
+        padding: 5px;
+    }
+
+    .active {
+        color: yellow;
     }
 
 }
