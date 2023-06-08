@@ -19,10 +19,12 @@ export default {
         </div>
 
         <div class="stats">
-            <p>{{ details.original_title }}</p>
-            <h3>{{ details.title }}</h3>
+            <p>{{ details.original_title || details.original_name }}</p>
+            <h3>{{ details.title || details.name }}</h3>
             <h4>{{ details.vote_average }} </h4>
-            <h5 :class="details.original_language === 'en' ? 'america' : ''">{{ details.original_language }} </h5>
+            <div class="row">
+                <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
+            </div>
 
         </div>
 
@@ -33,6 +35,10 @@ export default {
 .container-films {
     width: calc(100% / 5);
     padding: 20px;
+    // display: flex;
+    // justify-content: center;
+
+
 
 
     h3,
@@ -44,17 +50,17 @@ export default {
     }
 
     img {
-        width: 220px;
+        width: 40px;
+        margin: 0 auto;
+
     }
 
-    .america {
-        text-align: center;
-        background-image: url(../../public/icons8-usa-48.png);
-        background-repeat: no-repeat;
-        background-size: 30px;
-        background-position-y: center;
-        background-position-x: center;
+    .row {
+        display: flex;
+        justify-content: center;
     }
+
+
 
 }
 </style>

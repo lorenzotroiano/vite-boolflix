@@ -35,10 +35,29 @@ export default {
         .catch(err => {
           console.log(err);
         })
+    },
+    getSerie() {
+
+      let serieList = store.APIurlSerie;
+
+      if (store.searchText !== "") {
+        serieList += `${store.searchText}`
+        console.log(serieList);
+      }
+      axios.get(serieList)
+        .then(res => {
+          store.listSerie = res.data.results;
+
+        })
+        .catch(err => {
+          console.log(err);
+        })
     }
+
   },
   created() {
     this.getFilms();
+    this.getSerie();
   }
 }
 
