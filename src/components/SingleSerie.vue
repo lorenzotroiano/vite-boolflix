@@ -3,7 +3,7 @@
 
 
 export default {
-    name: "SingleFilm",
+    name: "SingleSerie",
 
     props: {
         details: Object
@@ -19,9 +19,9 @@ export default {
         </div>
 
         <div class="stats">
-            <p>Film</p>
-            <p>{{ details.original_title }}</p>
-            <h3>{{ details.title }}</h3>
+            <p>Serie Tv</p>
+            <p>{{ details.original_name }}</p>
+            <h3>{{ details.name }}</h3>
             <h4>{{ details.vote_average }} </h4>
             <div class="row">
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">

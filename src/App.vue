@@ -35,8 +35,8 @@ export default {
         .catch(err => {
           console.log(err);
         })
-    },
-    getSerie() {
+
+
 
       let serieList = store.APIurlSerie;
 
@@ -53,13 +53,15 @@ export default {
           console.log(err);
         })
     }
-
   },
+
   created() {
     this.getFilms();
-    this.getSerie();
+
   }
 }
+
+
 
 </script>
 

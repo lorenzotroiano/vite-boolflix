@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js';
 import SingleFilm from './SingleFilm.vue';
+import SingleSerie from './SingleSerie.vue';
 
 
 
@@ -8,7 +9,8 @@ export default {
     name: "AppListFilms",
 
     components: {
-        SingleFilm
+        SingleFilm,
+        SingleSerie
     },
     data() {
         return {
@@ -24,6 +26,9 @@ export default {
         <h2>Film e Serie Tv</h2>
         <section>
             <SingleFilm v-for="film in store.listFilms" :details="film" />
+
+
+            <SingleSerie v-for="serie in store.listSerie" :details="serie" />
 
 
         </section>
