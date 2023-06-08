@@ -14,9 +14,7 @@ export default {
 
 <template>
     <div class="container-films">
-        <div>
-            <img src="" alt="">
-        </div>
+
 
         <div class="stats">
             <p>Serie Tv</p>
@@ -24,6 +22,7 @@ export default {
             <p>{{ details.original_name }}</p>
             <h3>{{ details.name }}</h3>
             <h4>{{ details.vote_average }} </h4>
+            <i class="fa-regular fa-star"></i>
             <div class="row">
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
             </div>
@@ -67,6 +66,9 @@ export default {
     }
 
 
+    .fa-star {
+        width: 40px;
+    }
 
 }
 </style>

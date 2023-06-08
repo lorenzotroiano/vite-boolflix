@@ -7,8 +7,24 @@ export default {
 
     props: {
         details: Object
+    },
+
+    methods: {
+        convertToIntegerNum(n) {
+
+
+            let stars = n / 10;
+            const star = Math.round(stars * 5);
+            return star;
+
+
+
+
+        }
     }
 }
+
+
 
 </script>
 
@@ -21,7 +37,44 @@ export default {
             <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
             <p>{{ details.original_title }}</p>
             <h3>{{ details.title }}</h3>
-            <h4>{{ details.vote_average / 2 }} </h4>
+
+            <div v-if="convertToIntegerNum(details.vote_average) === 1">
+                <i class="fa-regular fa-star"> </i>
+            </div>
+
+            <div v-if="convertToIntegerNum(details.vote_average) === 2">
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+            </div>
+
+            <div v-if="convertToIntegerNum(details.vote_average) === 3">
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+            </div>
+
+
+            <div v-if="convertToIntegerNum(details.vote_average) === 4">
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+            </div>
+
+
+
+            <div v-if="convertToIntegerNum(details.vote_average) === 5">
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+                <i class="fa-regular fa-star"> </i>
+            </div>
+
+
+
+
+
             <div class="row">
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
             </div>
