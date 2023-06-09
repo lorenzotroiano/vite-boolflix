@@ -43,6 +43,8 @@ export default {
       if (store.searchText !== "") {
         serieList += `${store.searchText}`
         console.log(serieList);
+
+        store.searchText = "";
       }
       axios.get(serieList)
         .then(res => {

@@ -32,13 +32,15 @@ export default {
 
 <template>
     <div class="container-films">
-
+        <div class="poster">
+            <img class="poster" :src="'http://image.tmdb.org/t/p/w342/' + details.poster_path" alt="">
+        </div>
 
         <div class="stats">
-            <p>Film</p>
-            <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
-            <p>{{ details.original_title }}</p>
-            <h3>{{ details.title }}</h3>
+
+
+            <h3>{{ details.original_title }}</h3>
+            <h4>{{ details.title }}</h4>
 
 
 
@@ -49,8 +51,10 @@ export default {
 
 
             <div class="row">
-                <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
+                <img class="leng" :src="'../../img/' + details.original_language + '.png'" :alt="details.original_language">
             </div>
+
+            <p>{{ details.overview }}</p>
 
         </div>
 
@@ -59,27 +63,34 @@ export default {
 
 <style lang="scss" scoped>
 .container-films {
-    width: calc(100% / 5);
+    width: calc(100% / 5) -40px;
     padding: 20px;
+    margin: 0 auto;
+
+    position: relative;
+
+    transition: transform 0.8s;
     // display: flex;
     // justify-content: center;
+    // flex-direction: column;
+
+
 
 
 
 
     h3,
     h4,
-    p,
-    h5 {
+    p {
         text-align: center;
         margin: 10px 0;
     }
 
-    .poster {
-        width: 200px;
-    }
+    // .poster {
+    //     width: 200px;
+    // }
 
-    img {
+    .leng {
         width: 40px;
         margin: 0 auto;
 
@@ -92,6 +103,7 @@ export default {
 
     .fa-star {
         padding: 5px;
+        margin: 10px 5px;
     }
 
     .active {
@@ -99,5 +111,47 @@ export default {
     }
 
 
+
+}
+
+.poster {
+    // background: linear-gradient(to left, #4364f7, #6fb1fc);
+
+
+    z-index: 2;
+}
+
+.stats {
+    display: none;
+
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    text-align: center;
+    // transform: translate(-50%, -50%);
+
+
+
+    // background: linear-gradient(to right, #4364f7, #6fb1fc);
+    color: white;
+    transform: rotateY(180deg);
+
+    z-index: 1;
+
+}
+
+.container-films:hover {
+    transform: rotateY(180deg);
+    background-color: black;
+}
+
+.container-films:hover .poster {
+    opacity: 0;
+    // transform: rotateY(180deg);
+}
+
+.container-films:hover .stats {
+    display: block;
 }
 </style>

@@ -27,13 +27,15 @@ export default {
 
 <template>
     <div class="container-films">
-
+        <div class="poster">
+            <img class="poster" :src="'http://image.tmdb.org/t/p/w342/' + details.poster_path" alt="">
+        </div>
 
         <div class="stats">
-            <p>Serie Tv</p>
-            <img class="poster" :src="'http://image.tmdb.org/t/p/w500/' + details.poster_path" alt="">
-            <p>{{ details.original_name }}</p>
-            <h3>{{ details.name }}</h3>
+
+
+            <h3>{{ details.original_name }}</h3>
+            <h4>{{ details.name }}</h4>
 
             <i v-for="(star, index) in 5" class="fa-regular fa-star"
                 :class="convertToIntegerNum(details.vote_average) >= index ? 'active' : ''">
@@ -43,6 +45,9 @@ export default {
                 <img :src="'../../img/' + details.original_language + '.png'" alt="non esiste">
             </div>
 
+
+            <p>{{ details.overview }}</p>
+
         </div>
 
     </div>
@@ -50,27 +55,34 @@ export default {
 
 <style lang="scss" scoped>
 .container-films {
-    width: calc(100% / 5);
+    width: calc(100% / 5) -40px;
     padding: 20px;
+    margin: 0 auto;
+
+    position: relative;
+
+    transition: transform 0.8s;
     // display: flex;
     // justify-content: center;
+    // flex-direction: column;
+
+
 
 
 
 
     h3,
     h4,
-    p,
-    h5 {
+    p {
         text-align: center;
         margin: 10px 0;
     }
 
-    .poster {
-        width: 200px;
-    }
+    // .poster {
+    //     width: 200px;
+    // }
 
-    img {
+    .leng {
         width: 40px;
         margin: 0 auto;
 
@@ -81,14 +93,58 @@ export default {
         justify-content: center;
     }
 
-
     .fa-star {
         padding: 5px;
+        margin: 10px 5px;
     }
 
     .active {
         color: yellow;
     }
 
+
+
+}
+
+.poster {
+    // background: linear-gradient(to left, #4364f7, #6fb1fc);
+
+
+    z-index: 2;
+}
+
+.stats {
+    display: none;
+
+
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    text-align: center;
+    // transform: translate(-50%, -50%);
+
+
+
+    // background: linear-gradient(to right, #4364f7, #6fb1fc);
+    color: white;
+    transform: rotateY(180deg);
+
+    z-index: 1;
+
+}
+
+.container-films:hover {
+    transform: rotateY(180deg);
+    background-color: black;
+}
+
+.container-films:hover .poster {
+    opacity: 0;
+    // transform: rotateY(180deg);
+}
+
+.container-films:hover .stats {
+    display: block;
 }
 </style>
